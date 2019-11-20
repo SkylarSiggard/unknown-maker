@@ -28,8 +28,13 @@ class Unknown extends Component {
           for(let j = 0; j < this.state.unknowns.length; j++) {
             if (`unown-${str[i]}` === this.state.unknowns[j].name){
               axios.get(`${this.state.unknowns[j].url}`).then(res => {
-                this.state.name.push({unown: res.data.sprites.front_default})
+                this.state.name.push({unown: res.data.sprites.front_default, order: i})
               })
+              // if (this.state.name.length > 0) {
+              //   this.state.name.map((el, i) => {
+              //     console.log('map', el)
+              //   })
+              // }
             }
           }
         }
